@@ -23,7 +23,7 @@ const Star = () => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="#000000"
-      className="size-6"
+      className="size-5"
     >
       <path
         strokeLinecap="round"
@@ -38,7 +38,7 @@ const Card = () => {
   const [state, setState] = useState({ ...sampledata() });
   const { imageurl, title, rating, price, description, votes, nonveg } = state;
   return (
-    <div className="flex flex-row bg-red-400 w-2/5 gap-10">
+    <div className="flex flex-row gap-10">
       <div className="relative">
         <img src={imageurl} alt={title} className="rounded-lg" />
         <img
@@ -49,7 +49,7 @@ const Card = () => {
       </div>
       <div className="flex flex-col gap-1 justify-center">
         <h3 className="capitalize font-semibold">{title}</h3>
-        <div className="flex flex-row items-end">
+        <div className="flex flex-row items-center">
           <Star></Star>
           <Star></Star>
           <Star></Star>
