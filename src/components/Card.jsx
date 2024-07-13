@@ -6,9 +6,7 @@ import StarRating from "./StarRating";
 const Card = ({ dish, id }) => {
   const { imageurl, title, rating, price, description, votes, nonveg } = dish;
   return (
-    <div
-      className={`flex flex-row items-start ${imageurl ? "gap-10" : "gap-5"}`}
-    >
+    <div className={`flex flex-row items-start gap-5`}>
       <div className="relative">
         {imageurl && (
           <img src={imageurl} alt={title} className="rounded-lg dish" />
@@ -16,7 +14,7 @@ const Card = ({ dish, id }) => {
         <img
           src={nonveg ? NonVegIcon : VegIcon}
           className={`${
-            imageurl ? "absolute top-2 right-2" : "mr-4"
+            imageurl ? "absolute top-2 right-2" : "pt-1.5"
           } bg-white nv-icon`}
           alt="icon"
         />
