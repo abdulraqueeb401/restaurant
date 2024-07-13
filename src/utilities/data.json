@@ -4,6 +4,7 @@
       "name": "Regional Traditional Starters",
       "dishes": [
         {
+          "id": "c34227aa-afc8-4fe4-af12-d0b19f5546cb",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/085/dc94c1fecef867d72b6034cbd9213085.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Bangla Kodi",
           "rating": null,
@@ -13,6 +14,7 @@
           "nonveg": true
         },
         {
+          "id": "75d72e50-ec1b-4f1c-b590-edb5fe9b1697",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/f59/914c007c7d6954cd745e4e68a4fcdf59.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Bangla Paneer",
           "rating": 4,
@@ -22,6 +24,7 @@
           "nonveg": false
         },
         {
+          "id": "640c9841-250f-40b5-8962-11bac29e2bab",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/127/35f0850b33d1115fafa4a2e2deb04127.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Bhimavaram Royyala Vepudu",
           "rating": 4.7,
@@ -31,6 +34,7 @@
           "nonveg": true
         },
         {
+          "id": "84ec45dd-67c4-41a4-a3e3-372c12c27304",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/b97/e1ae20ffa4b58d8279e4bfc8a34c2b97.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Chicken Kaju Pakoda",
           "rating": 4,
@@ -40,6 +44,7 @@
           "nonveg": true
         },
         {
+          "id": "0b11e8bf-1ef4-478a-9abb-4ae87074456a",
           "imageurl": "",
           "title": "Coriander (Kothimeera) Chicken",
           "rating": 4,
@@ -54,6 +59,7 @@
       "name": "Soups",
       "dishes": [
         {
+          "id": "ee63dbb7-9c89-4d60-b362-b2a1dd904713",
           "imageurl": "",
           "title": "Tomato Soup",
           "rating": 4.3,
@@ -63,6 +69,7 @@
           "nonveg": false
         },
         {
+          "id": "01fd3294-e2e2-4b7a-8279-7179a011bb2b",
           "imageurl": "",
           "title": "Chicken Noodle Soup",
           "rating": 4.2,
@@ -72,6 +79,7 @@
           "nonveg": true
         },
         {
+          "id": "a6ce1cca-49ab-4bff-80aa-89381c3ae4aa",
           "imageurl": "",
           "title": "Sweet Corn Soup",
           "rating": null,
@@ -81,6 +89,7 @@
           "nonveg": false
         },
         {
+          "id": "bf6c7928-c047-4b6b-936e-0f52aae7a04b",
           "imageurl": "",
           "title": "Chicken Manchow Soup",
           "rating": null,
@@ -95,6 +104,7 @@
       "name": "Salads",
       "dishes": [
         {
+          "id": "795470bf-ff9b-432e-9b01-bf1b357ee6dc",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/400/520b4a180ff847cce8314b88fd969400.jpeg?fit=around|130:130&crop=130:130;*,*",
           "title": "Caesar Salad",
           "rating": 4.6,
@@ -104,6 +114,7 @@
           "nonveg": false
         },
         {
+          "id": "1a83e072-ca76-4d63-b1f5-019311f98103",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/fdb/a562de016637a8451f9317cf9c158fdb.png?fit=around|130:130&crop=130:130;*,*",
           "title": "Greek Salad",
           "rating": 4.4,
@@ -118,6 +129,7 @@
       "name": "Pasta",
       "dishes": [
         {
+          "id": "6fac5f64-79b4-4947-914e-5d8b847266c7",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/70c/f503d0058f83cce3b1d7f0a0cab5f70c.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Chicken Ragout Spaghetti (Signature Dish)",
           "rating": 4,
@@ -127,6 +139,7 @@
           "nonveg": true
         },
         {
+          "id": "0ab2bfa2-474c-40a9-8583-2c5f60407e4f",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/78a/afce5aef854dab1e995352abfdf1178a.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Spinach And Lamb Lasagne",
           "rating": 4.1,
@@ -141,6 +154,7 @@
       "name": "Pizza",
       "dishes": [
         {
+          "id": "3c5a283e-b800-4043-9894-816d93a53ef8",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/b65/7e39b476b9144b5ab8fa608f96a43b65.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Al Funghi Pizza",
           "rating": 4.1,
@@ -150,6 +164,7 @@
           "nonveg": false
         },
         {
+          "id": "8904fe41-498e-4da2-9c23-7dfd56578960",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/74c/ed2f8800675bb2edfb64fb8c95ad974c.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Traditional Pesto Pizza",
           "rating": null,
@@ -159,6 +174,7 @@
           "nonveg": false
         },
         {
+          "id": "b898ca47-f19c-4c1b-98f5-69623bd47e66",
           "imageurl": "https://b.zmtcdn.com/data/dish_photos/3f3/7db8fae21d61140b1eeb410c118353f3.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
           "title": "Meat Lovers Pizza (Signature Dish)",
           "rating": 4.2,

@@ -6,8 +6,8 @@ function MenuList(props) {
   return (
     <section className="flex flex-col gap-y-5 col-span-2">
       <h2 className="menu-heading">{name}</h2>
-      {dishes.map((dish, index) => {
-        return <Card key={index} dish={dish} />;
+      {dishes.map((dish) => {
+        return <Card key={dish.id} id={dish.id} dish={dish} />;
       })}
     </section>
   );

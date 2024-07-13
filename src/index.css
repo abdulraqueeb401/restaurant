@@ -15,3 +15,13 @@
   line-height: 1.2;
   font-weight: 600;
 }
+
+.c-icon {
+  --star-active: #f3c116;
+  --star-inactive: #e8e8e8;
+  fill: var(--star-inactive);
+}
+
+.c-icon.active {
+  fill: var(--star-active);
+}
