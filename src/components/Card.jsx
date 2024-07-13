@@ -1,20 +1,9 @@
-import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import NonVegIcon from "../assets/nonveg.svg";
 import VegIcon from "../assets/veg.svg";
 
-const sampledata = () => ({
-  imageurl:
-    "https://b.zmtcdn.com/data/dish_photos/127/35f0850b33d1115fafa4a2e2deb04127.jpeg?fit=around|130:130&crop=130:130;*,*",
-  title: "Bhimavaram Royyala Vepudu",
-  rating: 4.4,
-  votes: 10,
-  price: 575,
-  description: `[Chef's Special]`,
-  nonveg: true,
-});
-
 const Star = () => {
-  // TODO:Star rating: https://ishadeed.com/article/star-rating-svg/
+  // TODO: Star rating: https://ishadeed.com/article/star-rating-svg/
 
   return (
     <svg
@@ -34,34 +23,45 @@ const Star = () => {
   );
 };
 
-const Card = () => {
-  const [state, setState] = useState({ ...sampledata() });
-  const { imageurl, title, rating, price, description, votes, nonveg } = state;
+const Card = ({ dish }) => {
+  const { imageurl, title, rating, price, description, votes, nonveg } = dish;
   return (
-    <div className="flex flex-row gap-10">
+    <div
+      className={`flex flex-row items-start ${imageurl ? "gap-10" : "gap-5"}`}
+    >
       <div className="relative">
-        <img src={imageurl} alt={title} className="rounded-lg" />
+        {imageurl && (
+          <img src={imageurl} alt={title} className="rounded-lg dish" />
+        )}
         <img
           src={nonveg ? NonVegIcon : VegIcon}
-          className="absolute top-2 right-2"
+          className={`${
+            imageurl ? "absolute top-2 right-2" : "mr-4"
+          } bg-white nv-icon`}
           alt="icon"
         />
       </div>
       <div className="flex flex-col gap-1 justify-center">
         <h3 className="capitalize font-semibold">{title}</h3>
-        <div className="flex flex-row items-center">
-          <Star></Star>
-          <Star></Star>
-          <Star></Star>
-          <Star></Star>
-          <Star></Star>
-          <p className="font-light">{votes} votes</p>
-        </div>
+        {rating && (
+          <div className="flex flex-row items-center">
+            <Star></Star>
+            <Star></Star>
+            <Star></Star>
+            <Star></Star>
+            <Star></Star>
+            <p className="font-light">{votes} votes</p>
+          </div>
+        )}
         <p>₹{price}</p>
         <p>{description}</p>
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  dish: PropTypes.object.isRequired,
 };
 
 export default Card;

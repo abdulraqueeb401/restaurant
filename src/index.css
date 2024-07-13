@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dish {
+  max-width: initial;
+}
+
+.nv-icon {
+  border-radius: 0.18rem;
+}
+
+.menu-heading {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
