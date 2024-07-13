@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Card from "./components/Card";
+import Card from "./Card";
 
 function MenuList(props) {
   const { name, dishes } = props.menuitem;
