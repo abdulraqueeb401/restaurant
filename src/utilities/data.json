@@ -1,0 +1,173 @@
+{
+  "categories": [
+    {
+      "name": "Regional Traditional Starters",
+      "dishes": [
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/085/dc94c1fecef867d72b6034cbd9213085.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Bangla Kodi",
+          "rating": null,
+          "votes": null,
+          "price": 475,
+          "description": "Succulent cubes of Chicken wrapped in potato, flavoured with exotic spices & sauteed",
+          "nonveg": true
+        },
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/f59/914c007c7d6954cd745e4e68a4fcdf59.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Bangla Paneer",
+          "rating": 4,
+          "votes": 13,
+          "price": 445,
+          "description": "Cottage Cheese wrapped in potato, flavoured with exotic spices and sauteed",
+          "nonveg": false
+        },
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/127/35f0850b33d1115fafa4a2e2deb04127.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Bhimavaram Royyala Vepudu",
+          "rating": 4.7,
+          "votes": 10,
+          "price": 575,
+          "description": "[Chef's Special]",
+          "nonveg": true
+        },
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/b97/e1ae20ffa4b58d8279e4bfc8a34c2b97.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Chicken Kaju Pakoda",
+          "rating": 4,
+          "votes": 15,
+          "price": 475,
+          "description": "Small chunks of Chicken marinated with spices & cashew and sauteed",
+          "nonveg": true
+        },
+        {
+          "imageurl": "",
+          "title": "Coriander (Kothimeera) Chicken",
+          "rating": 4,
+          "votes": 15,
+          "price": 475,
+          "description": "Small chunks of Chicken marinated with spices & cashew and sauteed",
+          "nonveg": true
+        }
+      ]
+    },
+    {
+      "name": "Soups",
+      "dishes": [
+        {
+          "imageurl": "",
+          "title": "Tomato Soup",
+          "rating": 4.3,
+          "votes": 20,
+          "price": 159,
+          "description": "Creamy tomato soup with a hint of basil.",
+          "nonveg": false
+        },
+        {
+          "imageurl": "",
+          "title": "Chicken Noodle Soup",
+          "rating": 4.2,
+          "votes": 18,
+          "price": 269,
+          "description": "Classic chicken noodle soup with tender chicken and vegetables.",
+          "nonveg": true
+        },
+        {
+          "imageurl": "",
+          "title": "Sweet Corn Soup",
+          "rating": null,
+          "votes": null,
+          "price": 165,
+          "description": "",
+          "nonveg": false
+        },
+        {
+          "imageurl": "",
+          "title": "Chicken Manchow Soup",
+          "rating": null,
+          "votes": null,
+          "price": 195,
+          "description": "",
+          "nonveg": true
+        }
+      ]
+    },
+    {
+      "name": "Salads",
+      "dishes": [
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/400/520b4a180ff847cce8314b88fd969400.jpeg?fit=around|130:130&crop=130:130;*,*",
+          "title": "Caesar Salad",
+          "rating": 4.6,
+          "votes": 13,
+          "price": 169,
+          "description": "Romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.",
+          "nonveg": false
+        },
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/fdb/a562de016637a8451f9317cf9c158fdb.png?fit=around|130:130&crop=130:130;*,*",
+          "title": "Greek Salad",
+          "rating": 4.4,
+          "votes": 16,
+          "price": 259,
+          "description": "Mixed greens with olives, feta cheese, cucumbers, and tomatoes.",
+          "nonveg": false
+        }
+      ]
+    },
+    {
+      "name": "Pasta",
+      "dishes": [
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/70c/f503d0058f83cce3b1d7f0a0cab5f70c.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Chicken Ragout Spaghetti (Signature Dish)",
+          "rating": 4,
+          "votes": 13,
+          "price": 445,
+          "description": "Tender chicken with italian herb flavoured mince sauce.. [Serves for 2 people]",
+          "nonveg": true
+        },
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/78a/afce5aef854dab1e995352abfdf1178a.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Spinach And Lamb Lasagne",
+          "rating": 4.1,
+          "votes": 11,
+          "price": 550,
+          "description": "Layered cheesy Lamb ragout with wilted Spinach [Serves for 2 people]",
+          "nonveg": true
+        }
+      ]
+    },
+    {
+      "name": "Pizza",
+      "dishes": [
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/b65/7e39b476b9144b5ab8fa608f96a43b65.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Al Funghi Pizza",
+          "rating": 4.1,
+          "votes": 9,
+          "price": 475,
+          "description": "Roasted mushroom creamy sauce, trio mushroom drizzle, truffle oil. [Serves for 3 people]",
+          "nonveg": false
+        },
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/74c/ed2f8800675bb2edfb64fb8c95ad974c.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Traditional Pesto Pizza",
+          "rating": null,
+          "votes": null,
+          "price": 465,
+          "description": "Pesto sauce base with cherry tomatoes and Mozzarella[Serves for 3 people]",
+          "nonveg": false
+        },
+        {
+          "imageurl": "https://b.zmtcdn.com/data/dish_photos/3f3/7db8fae21d61140b1eeb410c118353f3.jpeg?output-format=webp&fit=around|130:130&crop=130:130;*,*",
+          "title": "Meat Lovers Pizza (Signature Dish)",
+          "rating": 4.2,
+          "votes": 12,
+          "price": 465,
+          "description": "Grilled chicken, smoked chicken, frankfurt sausage. [Serves for 3 people]",
+          "nonveg": true
+        }
+      ]
+    }
+  ]
+}
