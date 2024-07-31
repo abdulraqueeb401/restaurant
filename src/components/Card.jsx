@@ -2,12 +2,13 @@ import PropTypes from "prop-types";
 import NonVegIcon from "../assets/nonveg.svg";
 import VegIcon from "../assets/veg.svg";
 import StarRating from "./StarRating";
+import AddButton from "./AddButton";
 
 const Card = ({ dish, id }) => {
   const { imageurl, title, rating, price, description, votes, nonveg } = dish;
   return (
-    <div className={`flex flex-row items-start gap-5`}>
-      <div className="relative">
+    <div className={`card-container`}>
+      <div className="relative justify-self-end">
         {imageurl && (
           <img src={imageurl} alt={title} className="rounded-lg dish" />
         )}
@@ -30,6 +31,7 @@ const Card = ({ dish, id }) => {
         <p>₹{price}</p>
         <p>{description}</p>
       </div>
+      <AddButton />
     </div>
   );
 };

@@ -25,3 +25,30 @@
 .c-icon.active {
   fill: var(--star-active);
 }
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  column-gap: 10px;
+  max-width: 500px;
+  align-items: start;
+}
+
+.add-btn {
+  border: solid 1px #ef4f5f;
+  border-radius: 5px;
+  font-weight: 500;
+  color: #ef4f5f;
+  width: 100px;
+  height: 40px;
+}
+
+.add-btn:hover {
+  background: rgba(239, 79, 95, 0.1);
+}
+
+.add-btn-active {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
