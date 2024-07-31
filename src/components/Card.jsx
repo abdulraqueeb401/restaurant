@@ -4,8 +4,9 @@ import VegIcon from "../assets/veg.svg";
 import StarRating from "./StarRating";
 import AddButton from "./AddButton";
 
-const Card = ({ dish, id }) => {
-  const { imageurl, title, rating, price, description, votes, nonveg } = dish;
+const Card = ({ dish, onCardIdAddition, onCardIdRemoval }) => {
+  const { id, imageurl, title, rating, price, description, votes, nonveg } =
+    dish;
   return (
     <div className={`card-container`}>
       <div className="relative justify-self-end">
@@ -31,7 +32,11 @@ const Card = ({ dish, id }) => {
         <p>₹{price}</p>
         <p>{description}</p>
       </div>
-      <AddButton />
+      <AddButton
+        id={id}
+        addItemToCart={onCardIdAddition}
+        removeItemFromCart={onCardIdRemoval}
+      />
     </div>
   );
 };
