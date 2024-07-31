@@ -24,4 +24,10 @@ function AddButton({ id, addItemToCart, removeItemFromCart }) {
   );
 }
 
+AddButton.propTypes = {
+  id: PropTypes.string.isRequired,
+  addItemToCart: PropTypes.func.isRequired,
+  removeItemFromCart: PropTypes.func.isRequired,
+};
+
 export default AddButton;
