@@ -22,6 +22,8 @@ function MenuList({ menuitem, onCardIdAddition, onCardIdRemoval }) {
 
 MenuList.propTypes = {
   menuitem: PropTypes.object.isRequired,
+  onCardIdAddition: PropTypes.func.isRequired,
+  onCardIdRemoval: PropTypes.func.isRequired,
 };
 
 export default MenuList;
