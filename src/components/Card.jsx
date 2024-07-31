@@ -43,10 +43,8 @@ const Card = ({ dish, onCardIdAddition, onCardIdRemoval }) => {
 
 Card.propTypes = {
   dish: PropTypes.object.isRequired,
-};
-
-Card.propTypes = {
-  id: PropTypes.string,
+  onCardIdAddition: PropTypes.func.isRequired,
+  onCardIdRemoval: PropTypes.func.isRequired,
 };
 
 export default Card;
