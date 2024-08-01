@@ -2,6 +2,7 @@ import { useState } from "react";
 import sampledata from "./utilities/data.json";
 import Sidebar from "./components/Sidebar";
 import MenuList from "./components/MenuList";
+import { CartIdContext } from "./components/CartIdContext";
 
 const App = () => {
   // const [state, setState] = useState({})
@@ -50,15 +51,18 @@ const App = () => {
     <div className="grid grid-cols-4 gap-x-4">
       <Sidebar categories={categories} />
       <div className="flex flex-col gap-y-10 col-span-2">
-        {sampledata.categories.map((menuitem, index) => (
-          <MenuList
-            key={index}
-            onCardIdAddition={onCardIdAddition}
-            onCardIdRemoval={onCardIdRemoval}
-            menuitem={menuitem}
-          />
-        ))}
+        <CartIdContext.Provider value={cartIds}>
+          {sampledata.categories.map((menuitem, index) => (
+            <MenuList
+              key={index}
+              onCardIdAddition={onCardIdAddition}
+              onCardIdRemoval={onCardIdRemoval}
+              menuitem={menuitem}
+            />
+          ))}
+        </CartIdContext.Provider>
       </div>
+      <div>Cart</div>
     </div>
   );
 };

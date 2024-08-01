@@ -3,10 +3,16 @@ import NonVegIcon from "../assets/nonveg.svg";
 import VegIcon from "../assets/veg.svg";
 import StarRating from "./StarRating";
 import AddButton from "./AddButton";
+import { useContext } from "react";
+import { CartIdContext } from "./CartIdContext";
 
 const Card = ({ dish, onCardIdAddition, onCardIdRemoval }) => {
   const { id, imageurl, title, rating, price, description, votes, nonveg } =
     dish;
+  const cartIds = useContext(CartIdContext);
+  const cartItem = cartIds.filter((cartId) => cartId[id]);
+  const count = cartItem.length ? cartItem[0][id] : 0;
+
   return (
     <div className={`card-container`}>
       <div className="relative justify-self-end">
@@ -34,6 +40,7 @@ const Card = ({ dish, onCardIdAddition, onCardIdRemoval }) => {
       </div>
       <AddButton
         id={id}
+        count={count || 0}
         addItemToCart={onCardIdAddition}
         removeItemFromCart={onCardIdRemoval}
       />

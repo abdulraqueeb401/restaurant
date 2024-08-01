@@ -1,24 +1,14 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 
-function AddButton({ id, addItemToCart, removeItemFromCart }) {
-  const [count, setCount] = useState(0);
-  function handleAdd() {
-    setCount((c) => c + 1);
-    addItemToCart(id);
-  }
-  function handleRemove() {
-    setCount((c) => c - 1);
-    removeItemFromCart(id);
-  }
+function AddButton({ id, addItemToCart, removeItemFromCart, count }) {
   return count > 0 ? (
     <div className="add-btn add-btn-active">
-      <button onClick={handleRemove}>-</button>
+      <button onClick={() => removeItemFromCart(id)}>-</button>
       {count}
-      <button onClick={handleAdd}>+</button>
+      <button onClick={() => addItemToCart(id)}>+</button>
     </div>
   ) : (
-    <button onClick={handleAdd} className="add-btn">
+    <button onClick={() => addItemToCart(id)} className="add-btn">
       ADD
     </button>
   );
@@ -28,6 +18,7 @@ AddButton.propTypes = {
   id: PropTypes.string.isRequired,
   addItemToCart: PropTypes.func.isRequired,
   removeItemFromCart: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired,
 };
 
 export default AddButton;
