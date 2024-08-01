@@ -3,6 +3,7 @@ import sampledata from "./utilities/data.json";
 import Sidebar from "./components/Sidebar";
 import MenuList from "./components/MenuList";
 import { CartIdContext } from "./components/CartIdContext";
+import Cart from "./components/Cart";
 
 const App = () => {
   // const [state, setState] = useState({})
@@ -62,7 +63,12 @@ const App = () => {
           ))}
         </CartIdContext.Provider>
       </div>
-      <div>Cart</div>
+      <Cart
+        dishes={sampledata["categories"][0]["dishes"]}
+        addCount={onCardIdAddition}
+        removeCount={onCardIdRemoval}
+        cartIds={cartIds}
+      />
     </div>
   );
 };
