@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import CartItem from "./CartItem";
+import Card from "./Card";
 
 function Cart({ dishes, cartIds, onCardIdAddition, onCardIdRemoval }) {
   console.log(dishes);
@@ -10,28 +10,21 @@ function Cart({ dishes, cartIds, onCardIdAddition, onCardIdRemoval }) {
     totalPrice += dishCount * dish.price;
     return { ...dish, count: dishCount };
   });
-  console.log(cartItems);
+  // console.log(cartItems);
   return (
     <div className="cart">
       <h2 className="cart-title">Order</h2>
-      <div className="cart-items">
+      <div className="flex flex-col gap-2">
         {cartItems.map((cartItem) => {
+          // eslint-disable-next-line no-unused-vars
+          const { _, ...dishData } = cartItem;
           return (
-            <div key={cartItem.id}>
-              <CartItem
-                onCardIdAddition={onCardIdAddition}
-                onCardIdRemoval={onCardIdRemoval}
-                dish={cartItem}
-              />
-              {/* <p>
-                {cartItem.title} ₹{cartItem.price * cartItem.count}
-                <span>
-                  <button onClick={() => removeCount(cartItem.id)}>-</button>
-                  {cartItem.count}
-                  <button onClick={() => addCount(cartItem.id)}>+</button>
-                </span>
-              </p> */}
-            </div>
+            <Card
+              key={cartItem.id}
+              dish={dishData}
+              onCardIdAddition={onCardIdAddition}
+              onCardIdRemoval={onCardIdRemoval}
+            />
           );
         })}
         <hr />

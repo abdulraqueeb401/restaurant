@@ -3,6 +3,7 @@ import sampledata from "./utilities/data.json";
 import Sidebar from "./components/Sidebar";
 import MenuList from "./components/MenuList";
 import { CartIdContext } from "./components/CartIdContext";
+import { CardVariantContext } from "./components/CardVariantContext";
 import Cart from "./components/Cart";
 
 const App = () => {
@@ -53,23 +54,27 @@ const App = () => {
       <Sidebar categories={categories} />
       <div className="flex flex-col gap-y-10 col-span-2">
         <CartIdContext.Provider value={cartIds}>
-          {sampledata.categories.map((menuitem, index) => (
-            <MenuList
-              key={index}
-              onCardIdAddition={onCardIdAddition}
-              onCardIdRemoval={onCardIdRemoval}
-              menuitem={menuitem}
-            />
-          ))}
+          <CardVariantContext.Provider value="MENU_CARD">
+            {sampledata.categories.map((menuitem, index) => (
+              <MenuList
+                key={index}
+                onCardIdAddition={onCardIdAddition}
+                onCardIdRemoval={onCardIdRemoval}
+                menuitem={menuitem}
+              />
+            ))}
+          </CardVariantContext.Provider>
         </CartIdContext.Provider>
       </div>
       <CartIdContext.Provider value={cartIds}>
-        <Cart
-          dishes={sampledata["categories"][0]["dishes"]}
-          onCardIdAddition={onCardIdAddition}
-          onCardIdRemoval={onCardIdRemoval}
-          cartIds={cartIds}
-        />
+        <CardVariantContext.Provider value={"ORDER_CARD"}>
+          <Cart
+            dishes={sampledata["categories"][0]["dishes"]}
+            onCardIdAddition={onCardIdAddition}
+            onCardIdRemoval={onCardIdRemoval}
+            cartIds={cartIds}
+          />
+        </CardVariantContext.Provider>
       </CartIdContext.Provider>
     </div>
   );
