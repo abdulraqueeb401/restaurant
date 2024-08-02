@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import CartItem from "./CartItem";
 
-function Cart({ dishes, cartIds, addCount, removeCount }) {
+function Cart({ dishes, cartIds, onCardIdAddition, onCardIdRemoval }) {
   console.log(dishes);
   let totalPrice = 0;
   const cartItems = cartIds.map((cartId) => {
@@ -17,14 +18,19 @@ function Cart({ dishes, cartIds, addCount, removeCount }) {
         {cartItems.map((cartItem) => {
           return (
             <div key={cartItem.id}>
-              <p>
+              <CartItem
+                onCardIdAddition={onCardIdAddition}
+                onCardIdRemoval={onCardIdRemoval}
+                dish={cartItem}
+              />
+              {/* <p>
                 {cartItem.title} ₹{cartItem.price * cartItem.count}
                 <span>
                   <button onClick={() => removeCount(cartItem.id)}>-</button>
                   {cartItem.count}
                   <button onClick={() => addCount(cartItem.id)}>+</button>
                 </span>
-              </p>
+              </p> */}
             </div>
           );
         })}
@@ -38,8 +44,8 @@ function Cart({ dishes, cartIds, addCount, removeCount }) {
 Cart.propTypes = {
   dishes: PropTypes.array.isRequired,
   cartIds: PropTypes.array.isRequired,
-  addCount: PropTypes.func.isRequired,
-  removeCount: PropTypes.func.isRequired,
+  onCardIdAddition: PropTypes.func.isRequired,
+  onCardIdRemoval: PropTypes.func.isRequired,
 };
 
 export default Cart;

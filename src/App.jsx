@@ -63,12 +63,14 @@ const App = () => {
           ))}
         </CartIdContext.Provider>
       </div>
-      <Cart
-        dishes={sampledata["categories"][0]["dishes"]}
-        addCount={onCardIdAddition}
-        removeCount={onCardIdRemoval}
-        cartIds={cartIds}
-      />
+      <CartIdContext.Provider value={cartIds}>
+        <Cart
+          dishes={sampledata["categories"][0]["dishes"]}
+          onCardIdAddition={onCardIdAddition}
+          onCardIdRemoval={onCardIdRemoval}
+          cartIds={cartIds}
+        />
+      </CartIdContext.Provider>
     </div>
   );
 };
