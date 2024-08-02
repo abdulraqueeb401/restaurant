@@ -1,17 +1,18 @@
 import PropTypes from "prop-types";
+
 function Cart({ dishes, cartIds, addCount, removeCount }) {
   console.log(dishes);
   let totalPrice = 0;
-  const cartItems = dishes.reduce((acc, dish) => {
-    const cartId = cartIds.filter((cartId) => cartId[dish.id]);
-    const dishCount = cartId.length ? cartId[0][dish.id] : 0;
-    totalPrice = totalPrice + (dishCount ? dish.price * dishCount : 0);
-    return dishCount ? [...acc, { ...dish, ["count"]: dishCount }] : acc;
-  }, []);
+  const cartItems = cartIds.map((cartId) => {
+    const [dish] = dishes.filter((dish) => cartId[dish.id]);
+    const dishCount = cartId[dish.id];
+    totalPrice += dishCount * dish.price;
+    return { ...dish, count: dishCount };
+  });
   console.log(cartItems);
   return (
-    <div>
-      <h2>Cart</h2>
+    <div className="cart">
+      <h2 className="cart-title">Order</h2>
       <div className="cart-items">
         {cartItems.map((cartItem) => {
           return (

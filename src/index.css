@@ -52,3 +52,13 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.cart {
+  padding: 10px;
+  height: fit-content;
+}
+
+.cart-title {
+  font-size: 24px;
+  font-weight: 600;
+}
