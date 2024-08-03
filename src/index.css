@@ -39,8 +39,8 @@
   border-radius: 5px;
   font-weight: 500;
   color: #ef4f5f;
-  width: 100px;
-  height: 40px;
+  width: 60px;
+  height: 30px;
 }
 
 .add-btn:hover {
@@ -51,4 +51,14 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.cart {
+  padding: 10px;
+  height: fit-content;
+}
+
+.cart-title {
+  font-size: 24px;
+  font-weight: 600;
 }
