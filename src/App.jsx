@@ -12,6 +12,9 @@ const App = () => {
   //   .fill(0)
   //   .map((item, index) => <Card key={index} />);
   const [cartIds, setCartIds] = useState([]);
+  const dishes = sampledata.categories
+    .map((category) => category.dishes)
+    .flat(1);
   function onCardIdAddition(id) {
     const index = cartIds.findIndex((cartId) => cartId[id]);
     if (index !== -1) {
@@ -69,7 +72,7 @@ const App = () => {
       <CartIdContext.Provider value={cartIds}>
         <CardVariantContext.Provider value={"ORDER_CARD"}>
           <Cart
-            dishes={sampledata["categories"][0]["dishes"]}
+            dishes={dishes}
             onCardIdAddition={onCardIdAddition}
             onCardIdRemoval={onCardIdRemoval}
             cartIds={cartIds}
