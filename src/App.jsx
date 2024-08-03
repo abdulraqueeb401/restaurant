@@ -5,6 +5,7 @@ import MenuList from "./components/MenuList";
 import { CartIdContext } from "./components/CartIdContext";
 import { CardVariantContext } from "./components/CardVariantContext";
 import Cart from "./components/Cart";
+import Gallery from "./components/Gallery";
 
 const App = () => {
   // const [state, setState] = useState({})
@@ -48,38 +49,39 @@ const App = () => {
     }
   }
 
-  console.log(cartIds);
+  // console.log(cartIds);
 
   const categories = sampledata.categories.map((item) => item.name);
   // console.log(sampledata);
   return (
-    <div className="grid grid-cols-4 gap-x-4">
-      <Sidebar categories={categories} />
-      <div className="flex flex-col gap-y-10 col-span-2">
-        <CartIdContext.Provider value={cartIds}>
-          <CardVariantContext.Provider value="MENU_CARD">
-            {sampledata.categories.map((menuitem, index) => (
-              <MenuList
-                key={index}
-                onCardIdAddition={onCardIdAddition}
-                onCardIdRemoval={onCardIdRemoval}
-                menuitem={menuitem}
-              />
-            ))}
-          </CardVariantContext.Provider>
-        </CartIdContext.Provider>
-      </div>
-      <CartIdContext.Provider value={cartIds}>
-        <CardVariantContext.Provider value={"ORDER_CARD"}>
-          <Cart
-            dishes={dishes}
-            onCardIdAddition={onCardIdAddition}
-            onCardIdRemoval={onCardIdRemoval}
-            cartIds={cartIds}
-          />
-        </CardVariantContext.Provider>
-      </CartIdContext.Provider>
-    </div>
+    //   <div className="grid grid-cols-4 gap-x-4">
+    //     <Sidebar categories={categories} />
+    //     <div className="flex flex-col gap-y-10 col-span-2">
+    //       <CartIdContext.Provider value={cartIds}>
+    //         <CardVariantContext.Provider value="MENU_CARD">
+    //           {sampledata.categories.map((menuitem, index) => (
+    //             <MenuList
+    //               key={index}
+    //               onCardIdAddition={onCardIdAddition}
+    //               onCardIdRemoval={onCardIdRemoval}
+    //               menuitem={menuitem}
+    //             />
+    //           ))}
+    //         </CardVariantContext.Provider>
+    //       </CartIdContext.Provider>
+    //     </div>
+    //     <CartIdContext.Provider value={cartIds}>
+    //       <CardVariantContext.Provider value={"ORDER_CARD"}>
+    //         <Cart
+    //           dishes={dishes}
+    //           onCardIdAddition={onCardIdAddition}
+    //           onCardIdRemoval={onCardIdRemoval}
+    //           cartIds={cartIds}
+    //         />
+    //       </CardVariantContext.Provider>
+    //     </CartIdContext.Provider>
+    //   </div>
+    <Gallery />
   );
 };
 
