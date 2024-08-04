@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .h-500 {
+    height: 500px;
+  }
+  .bg-primary {
+    background: #ef4f5f;
+  }
+}
+
 .dish {
   max-width: initial;
 }

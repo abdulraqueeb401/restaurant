@@ -6,6 +6,7 @@ import { CartIdContext } from "./components/CartIdContext";
 import { CardVariantContext } from "./components/CardVariantContext";
 import Cart from "./components/Cart";
 import Gallery from "./components/Gallery";
+import Carousel from "./components/Carousel";
 
 const App = () => {
   // const [state, setState] = useState({})
@@ -81,7 +82,8 @@ const App = () => {
     //       </CardVariantContext.Provider>
     //     </CartIdContext.Provider>
     //   </div>
-    <Gallery />
+    // <Gallery />
+    <Carousel />
   );
 };
 
