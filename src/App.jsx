@@ -7,6 +7,8 @@ import { CardVariantContext } from "./components/CardVariantContext";
 import Cart from "./components/Cart";
 import Gallery from "./components/Gallery";
 import Carousel from "./components/Carousel";
+import Modal from "./components/Modal";
+import { images as carouselImages } from "./assets/gallery_images.json";
 
 const App = () => {
   // const [state, setState] = useState({})
@@ -14,6 +16,8 @@ const App = () => {
   //   .fill(0)
   //   .map((item, index) => <Card key={index} />);
   const [cartIds, setCartIds] = useState([]);
+  const [displayModal, setDisplayModal] = useState(false);
+  const [carouselItem, setCarouselItem] = useState(0);
   const dishes = sampledata.categories
     .map((category) => category.dishes)
     .flat(1);
@@ -50,6 +54,34 @@ const App = () => {
     }
   }
 
+  function handleDisplayModal(e, index) {
+    e.stopPropagation();
+    setDisplayModal((d) => !d);
+    setCarouselItem(index);
+  }
+
+  function handleCloseModal(e) {
+    e.stopPropagation();
+    setDisplayModal(false);
+  }
+
+  function nextCarouselItem() {
+    const totalImages = carouselImages.length;
+    if (carouselItem + 1 < totalImages) {
+      setCarouselItem(carouselItem + 1);
+    } else {
+      setCarouselItem(0);
+    }
+  }
+
+  function prevCarouselItem() {
+    const totalImages = carouselImages.length;
+    if (carouselItem - 1 >= 0) {
+      setCurrent(carouselItem - 1);
+    } else {
+      setCurrent(totalImages - 1);
+    }
+  }
   // console.log(cartIds);
 
   const categories = sampledata.categories.map((item) => item.name);
@@ -82,8 +114,18 @@ const App = () => {
     //       </CardVariantContext.Provider>
     //     </CartIdContext.Provider>
     //   </div>
-    // <Gallery />
-    <Carousel />
+    displayModal ? (
+      <Modal closeModal={handleCloseModal}>
+        <Carousel
+          carouselItem={carouselItem}
+          nextCaroselItem={nextCarouselItem}
+          prevCarouselItem={prevCarouselItem}
+          images={carouselImages}
+        />
+      </Modal>
+    ) : (
+      <Gallery displayModal={handleDisplayModal} />
+    )
   );
 };
 
