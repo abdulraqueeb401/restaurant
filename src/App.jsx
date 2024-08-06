@@ -77,9 +77,9 @@ const App = () => {
   function prevCarouselItem() {
     const totalImages = carouselImages.length;
     if (carouselItem - 1 >= 0) {
-      setCurrent(carouselItem - 1);
+      setCarouselItem(carouselItem - 1);
     } else {
-      setCurrent(totalImages - 1);
+      setCarouselItem(totalImages - 1);
     }
   }
   // console.log(cartIds);
