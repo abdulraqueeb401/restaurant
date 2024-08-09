@@ -795,6 +795,10 @@ video {
   border-radius: 0.5rem;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .bg-gray-600\/50 {
   background-color: rgb(75 85 99 / 0.5);
 }

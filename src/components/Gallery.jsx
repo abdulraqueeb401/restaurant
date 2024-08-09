@@ -1,20 +1,16 @@
-import { images } from "../assets/gallery_images.json";
+import GalleryImage from "./GalleryImage";
 import PropTypes from "prop-types";
 
-function Gallery({ displayModal }) {
-  console.log(images);
-
+function Gallery({ displayModal, images }) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 w-2/5 m-auto">
       {images.map((imageurl, index) => {
         return (
-          <div className="rounded-lg overflow-hidden" key={index}>
-            <img
-              loading="lazy"
-              className="object-cover object-center w-full h-48 max-w-full rounded-lg hover:scale-110 transition cursor-pointer"
-              onClick={(e) => displayModal(e, index)}
-              src={imageurl}
-              alt="gallery image"
+          <div className="h-48 rounded-lg overflow-hidden" key={index}>
+            <GalleryImage
+              displayModal={displayModal}
+              url={imageurl}
+              index={index}
             />
           </div>
         );
@@ -25,6 +21,7 @@ function Gallery({ displayModal }) {
 
 Gallery.propTypes = {
   displayModal: PropTypes.func.isRequired,
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Gallery;

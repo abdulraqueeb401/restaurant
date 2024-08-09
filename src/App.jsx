@@ -8,7 +8,7 @@ import Cart from "./components/Cart";
 import Gallery from "./components/Gallery";
 import Carousel from "./components/Carousel";
 import Modal from "./components/Modal";
-import { images as carouselImages } from "./assets/gallery_images.json";
+import { images } from "./assets/gallery_images.json";
 import BannerGallery from "./components/BannerGallery";
 
 const App = () => {
@@ -67,7 +67,7 @@ const App = () => {
   }
 
   function nextCarouselItem() {
-    const totalImages = carouselImages.length;
+    const totalImages = images.length;
     if (carouselItem + 1 < totalImages) {
       setCarouselItem(carouselItem + 1);
     } else {
@@ -76,7 +76,7 @@ const App = () => {
   }
 
   function prevCarouselItem() {
-    const totalImages = carouselImages.length;
+    const totalImages = images.length;
     if (carouselItem - 1 >= 0) {
       setCarouselItem(carouselItem - 1);
     } else {
@@ -115,28 +115,23 @@ const App = () => {
     //       </CardVariantContext.Provider>
     //     </CartIdContext.Provider>
     //   </div>
-    //   displayModal ? (
-    //     <Modal closeModal={handleCloseModal}>
-    //       <Carousel
-    //         carouselItem={carouselItem}
-    //         nextCaroselItem={nextCarouselItem}
-    //         prevCarouselItem={prevCarouselItem}
-    //         images={carouselImages}
-    //       />
-    //     </Modal>
-    //   ) : (
-    //     <Gallery displayModal={handleDisplayModal} />
-    //   )
-    <div className="w-3/4 m-auto">
-      <BannerGallery
-        images={[
-          "https://b.zmtcdn.com/data/pictures/7/20892247/2143630f44c9f31e76ec227744f631ec.jpg?output-format=webp",
-          "https://b.zmtcdn.com/data/pictures/chains/3/19797553/a5195ab56edf29b5343372b4587bc82d.jpg",
-          "https://b.zmtcdn.com/data/pictures/7/20892247/38d03906082718c2e68c44a69aefd6ba.jpg",
-          "https://b.zmtcdn.com/data/pictures/7/20892247/f15781bfe856df4f90102e8e1c814b43.jpg",
-        ]}
-      />
-    </div>
+    <>
+      {displayModal ? (
+        <Modal closeModal={handleCloseModal}>
+          <Carousel
+            carouselItem={carouselItem}
+            nextCaroselItem={nextCarouselItem}
+            prevCarouselItem={prevCarouselItem}
+            images={images}
+          />
+        </Modal>
+      ) : (
+        <Gallery images={images} displayModal={handleDisplayModal} />
+      )}
+      <div className="w-3/4 m-auto">
+        <BannerGallery images={images} displayModal={handleDisplayModal} />
+      </div>
+    </>
   );
 };
 

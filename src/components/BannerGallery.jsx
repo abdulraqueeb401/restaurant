@@ -1,38 +1,40 @@
 import PropTypes from "prop-types";
+import GalleryImage from "./GalleryImage";
 
-function BannerGallery({ images }) {
+function BannerGallery({ images, displayModal }) {
+  const newImages = images.slice(0, 5);
   return (
     <div className="grid grid-cols-5 grid-rows-2 gap-2 h-96">
-      <div className="h-full row-span-2 col-span-3">
-        <img
-          className="object-cover object-center w-full h-full"
-          src={images[0]}
-          alt="banner image 1"
+      <div className="h-full row-span-2 col-span-3 overflow-hidden">
+        <GalleryImage
+          url={newImages[0]}
+          displayModal={displayModal}
+          index={0}
         />
       </div>
       <div className="row-span-2">
         <div className="grid grid-cols-1 grid-rows-2 gap-2 h-full w-full">
-          <div className="w-full h-full row-span-1">
-            <img
-              className="object-cover object-center h-full w-full"
-              src={images[1]}
-              alt="banner image 2"
+          <div className="w-full h-full row-span-1 overflow-hidden">
+            <GalleryImage
+              url={newImages[1]}
+              displayModal={displayModal}
+              index={1}
             />
           </div>
-          <div className="w-full h-full row-span-1">
-            <img
-              className="object-cover object-center h-full w-full"
-              src={images[2]}
-              alt="banner image 3"
+          <div className="w-full h-full row-span-1 overflow-hidden">
+            <GalleryImage
+              url={newImages[2]}
+              displayModal={displayModal}
+              index={2}
             />
           </div>
         </div>
       </div>
-      <div className="col-span-1 row-span-2 h-full w-full">
-        <img
-          className="object-cover object-center h-full"
-          src={images[3]}
-          alt="banner image 4"
+      <div className="col-span-1 row-span-2 h-full w-full overflow-hidden">
+        <GalleryImage
+          url={newImages[3]}
+          displayModal={displayModal}
+          index={3}
         />
       </div>
     </div>
@@ -41,6 +43,7 @@ function BannerGallery({ images }) {
 
 BannerGallery.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  displayModal: PropTypes.func.isRequired,
 };
 
 export default BannerGallery;
