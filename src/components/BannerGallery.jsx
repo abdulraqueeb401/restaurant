@@ -30,12 +30,16 @@ function BannerGallery({ images, displayModal }) {
           </div>
         </div>
       </div>
-      <div className="col-span-1 row-span-2 h-full w-full overflow-hidden">
+      <div className="col-span-1 row-span-2 h-full w-full overflow-hidden relative">
         <GalleryImage
           url={newImages[3]}
           displayModal={displayModal}
           index={3}
         />
+        {/* TODO: Add routing to Gallery page */}
+        <div className="h-full w-full absolute top-0 right-0  z-10 bg-gray-900/60 text-slate-200 font-light flex items-center justify-center cursor-pointer">
+          View Gallery
+        </div>
       </div>
     </div>
   );
