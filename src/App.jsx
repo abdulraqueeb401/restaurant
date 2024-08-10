@@ -5,6 +5,11 @@ import MenuList from "./components/MenuList";
 import { CartIdContext } from "./components/CartIdContext";
 import { CardVariantContext } from "./components/CardVariantContext";
 import Cart from "./components/Cart";
+import Gallery from "./components/Gallery";
+import Carousel from "./components/Carousel";
+import Modal from "./components/Modal";
+import { images } from "./assets/gallery_images.json";
+import BannerGallery from "./components/BannerGallery";
 
 const App = () => {
   // const [state, setState] = useState({})
@@ -12,6 +17,8 @@ const App = () => {
   //   .fill(0)
   //   .map((item, index) => <Card key={index} />);
   const [cartIds, setCartIds] = useState([]);
+  const [displayModal, setDisplayModal] = useState(false);
+  const [carouselItem, setCarouselItem] = useState(0);
   const dishes = sampledata.categories
     .map((category) => category.dishes)
     .flat(1);
@@ -48,38 +55,83 @@ const App = () => {
     }
   }
 
-  console.log(cartIds);
+  function handleDisplayModal(e, index) {
+    e.stopPropagation();
+    setDisplayModal((d) => !d);
+    setCarouselItem(index);
+  }
+
+  function handleCloseModal(e) {
+    e.stopPropagation();
+    setDisplayModal(false);
+  }
+
+  function nextCarouselItem() {
+    const totalImages = images.length;
+    if (carouselItem + 1 < totalImages) {
+      setCarouselItem(carouselItem + 1);
+    } else {
+      setCarouselItem(0);
+    }
+  }
+
+  function prevCarouselItem() {
+    const totalImages = images.length;
+    if (carouselItem - 1 >= 0) {
+      setCarouselItem(carouselItem - 1);
+    } else {
+      setCarouselItem(totalImages - 1);
+    }
+  }
+  // console.log(cartIds);
 
   const categories = sampledata.categories.map((item) => item.name);
   // console.log(sampledata);
   return (
-    <div className="grid grid-cols-4 gap-x-4">
-      <Sidebar categories={categories} />
-      <div className="flex flex-col gap-y-10 col-span-2">
-        <CartIdContext.Provider value={cartIds}>
-          <CardVariantContext.Provider value="MENU_CARD">
-            {sampledata.categories.map((menuitem, index) => (
-              <MenuList
-                key={index}
-                onCardIdAddition={onCardIdAddition}
-                onCardIdRemoval={onCardIdRemoval}
-                menuitem={menuitem}
-              />
-            ))}
-          </CardVariantContext.Provider>
-        </CartIdContext.Provider>
-      </div>
-      <CartIdContext.Provider value={cartIds}>
-        <CardVariantContext.Provider value={"ORDER_CARD"}>
-          <Cart
-            dishes={dishes}
-            onCardIdAddition={onCardIdAddition}
-            onCardIdRemoval={onCardIdRemoval}
-            cartIds={cartIds}
+    //   <div className="grid grid-cols-4 gap-x-4">
+    //     <Sidebar categories={categories} />
+    //     <div className="flex flex-col gap-y-10 col-span-2">
+    //       <CartIdContext.Provider value={cartIds}>
+    //         <CardVariantContext.Provider value="MENU_CARD">
+    //           {sampledata.categories.map((menuitem, index) => (
+    //             <MenuList
+    //               key={index}
+    //               onCardIdAddition={onCardIdAddition}
+    //               onCardIdRemoval={onCardIdRemoval}
+    //               menuitem={menuitem}
+    //             />
+    //           ))}
+    //         </CardVariantContext.Provider>
+    //       </CartIdContext.Provider>
+    //     </div>
+    //     <CartIdContext.Provider value={cartIds}>
+    //       <CardVariantContext.Provider value={"ORDER_CARD"}>
+    //         <Cart
+    //           dishes={dishes}
+    //           onCardIdAddition={onCardIdAddition}
+    //           onCardIdRemoval={onCardIdRemoval}
+    //           cartIds={cartIds}
+    //         />
+    //       </CardVariantContext.Provider>
+    //     </CartIdContext.Provider>
+    //   </div>
+    <>
+      {displayModal ? (
+        <Modal closeModal={handleCloseModal}>
+          <Carousel
+            carouselItem={carouselItem}
+            nextCaroselItem={nextCarouselItem}
+            prevCarouselItem={prevCarouselItem}
+            images={images}
           />
-        </CardVariantContext.Provider>
-      </CartIdContext.Provider>
-    </div>
+        </Modal>
+      ) : (
+        <Gallery images={images} displayModal={handleDisplayModal} />
+      )}
+      <div className="w-3/4 m-auto">
+        <BannerGallery images={images} displayModal={handleDisplayModal} />
+      </div>
+    </>
   );
 };
 
