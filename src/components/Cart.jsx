@@ -12,7 +12,7 @@ function Cart({ dishes, cartIds, onCardIdAddition, onCardIdRemoval }) {
   });
   // console.log(cartItems);
   return (
-    <div className="cart">
+    <div className="px-4 pb-4 h-auto w-full">
       <h2 className="cart-title">Order</h2>
       <div className="flex flex-col gap-2">
         {cartItems.map((cartItem) => {
