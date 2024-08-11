@@ -10,13 +10,20 @@ import Carousel from "./components/Carousel";
 import Modal from "./components/Modal";
 import { images } from "./assets/gallery_images.json";
 import BannerGallery from "./components/BannerGallery";
-import { Routes, Route, Link } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Link,
+  useMatch,
+  useResolvedPath,
+} from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import Overview from "./routes/Overview";
 import Order from "./routes/Order";
 import Reviews from "./routes/Reviews";
 import Photos from "./routes/Photos";
 import BookTable from "./routes/BookTable";
+import TabLink from "./components/TabLink";
 
 const App = () => {
   // const [state, setState] = useState({})
@@ -121,6 +128,9 @@ const App = () => {
   ];
 
   const categories = sampledata.categories.map((item) => item.name);
+
+  const resolved = useResolvedPath();
+
   // console.log(sampledata);
   return (
     //   <div className="grid grid-cols-4 gap-x-4">
@@ -196,22 +206,10 @@ const App = () => {
           Directions
         </button>
 
-        <section className="flex justify-between text-gray-700 mt-3 relative">
+        <section className="flex justify-start text-gray-700 mt-3 relative gap-10">
           {tabLinks.map((tablink) => (
-            <div key={tablink.id} className="relative">
-              <div className={`text-red-500 px-3 py-4`}>
-                <Link to={tablink.link}>{tablink.title}</Link>
-              </div>
-              <hr className="bg-red-500 h-1 absolute bottom-0 left-0 w-full z-10" />
-            </div>
+            <TabLink key={tablink.id} to={tablink.link} title={tablink.title} />
           ))}
-          {/* inactive variant */}
-          <div className="relative">
-            <div className={`text-gray-500 font-light px-3 py-4`}>
-              <Link href={"/"}>Inactive Tab</Link>
-            </div>
-            {/* <hr className="bg-red-500 h-1 absolute bottom-0 left-0 w-full z-10" /> */}
-          </div>
           <hr className="bg-gray-400 h-0.5 absolute bottom-0 left-0 m-0 p-0 w-full" />
         </section>
 
