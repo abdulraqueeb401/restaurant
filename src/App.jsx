@@ -10,6 +10,13 @@ import Carousel from "./components/Carousel";
 import Modal from "./components/Modal";
 import { images } from "./assets/gallery_images.json";
 import BannerGallery from "./components/BannerGallery";
+import { Routes, Route, Link } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
+import Overview from "./routes/Overview";
+import Order from "./routes/Order";
+import Reviews from "./routes/Reviews";
+import Photos from "./routes/Photos";
+import BookTable from "./routes/BookTable";
 
 const App = () => {
   // const [state, setState] = useState({})
@@ -93,22 +100,22 @@ const App = () => {
     },
     {
       title: "Order Online",
-      link: "/",
+      link: "/order-online",
       id: "tabid2",
     },
     {
       title: "Reviews",
-      link: "/",
+      link: "/reviews",
       id: "tabid3",
     },
     {
       title: "Photos",
-      link: "/",
+      link: "/photos",
       id: "tabid4",
     },
     {
       title: "Book a Table",
-      link: "/",
+      link: "/book-table",
       id: "tabid5",
     },
   ];
@@ -193,7 +200,7 @@ const App = () => {
           {tabLinks.map((tablink) => (
             <div key={tablink.id} className="relative">
               <div className={`text-red-500 px-3 py-4`}>
-                <a href={tablink.link}>{tablink.title}</a>
+                <Link to={tablink.link}>{tablink.title}</Link>
               </div>
               <hr className="bg-red-500 h-1 absolute bottom-0 left-0 w-full z-10" />
             </div>
@@ -201,12 +208,20 @@ const App = () => {
           {/* inactive variant */}
           <div className="relative">
             <div className={`text-gray-500 font-light px-3 py-4`}>
-              <a href={"/"}>Inactive Tab</a>
+              <Link href={"/"}>Inactive Tab</Link>
             </div>
             {/* <hr className="bg-red-500 h-1 absolute bottom-0 left-0 w-full z-10" /> */}
           </div>
           <hr className="bg-gray-400 h-0.5 absolute bottom-0 left-0 m-0 p-0 w-full" />
         </section>
+
+        <Routes>
+          <Route path="/" element={<Overview />} />
+          <Route path="/order-online" element={<Order />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/photos" element={<Photos />} />
+          <Route path="/book-table" element={<BookTable />} />
+        </Routes>
       </div>
     </>
   );
