@@ -1,5 +1,9 @@
+import Gallery from "../components/Gallery";
+import { images } from "../assets/gallery_images.json";
+
 function Photos() {
-  return <h1>Photos</h1>;
+  function handleDisplayModal() {}
+  return <Gallery images={images} displayModal={handleDisplayModal} />;
 }
 
 export default Photos;

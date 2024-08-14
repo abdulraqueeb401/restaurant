@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function Gallery({ displayModal, images }) {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 w-2/5 m-auto">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 w-4/5 m-auto mt-3">
       {images.map((imageurl, index) => {
         return (
           <div className="h-48 rounded-lg overflow-hidden" key={index}>
