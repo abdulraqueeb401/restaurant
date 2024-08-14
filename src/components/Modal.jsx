@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function Modal({ children, closeModal }) {
   return (
-    <div className="h-screen bg-gray-900/50 flex justify-center align-center relative">
+    <div className="h-screen bg-gray-950/95 flex justify-center align-center relative">
       <button onClick={closeModal} className="absolute top-6 right-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +10,7 @@ function Modal({ children, closeModal }) {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          stroke="currentColor"
+          stroke="#ffffff"
         >
           <path
             strokeLinecap="round"

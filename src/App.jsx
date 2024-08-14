@@ -76,7 +76,7 @@ const App = () => {
   return (
     //
     <>
-      {/* {displayModal ? (
+      {displayModal ? (
         <Modal closeModal={handleCloseModal}>
           <Carousel
             carouselItem={carouselItem}
@@ -86,22 +86,29 @@ const App = () => {
           />
         </Modal>
       ) : (
-        <Gallery images={images} displayModal={handleDisplayModal} />
-      )} */}
-      <div className="w-3/4 m-auto">
-        <RestaurantHero
-          images={images}
-          handleDisplayModal={handleDisplayModal}
-        />
-        <TabLinks tabLinks={tabLinks} />
-        <Routes>
-          <Route path="/" element={<Overview />} />
-          <Route path="/order-online" element={<Order />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/photos" element={<Photos />} />
-          <Route path="/book-table" element={<BookTable />} />
-        </Routes>
-      </div>
+        <div className="w-3/4 m-auto">
+          <RestaurantHero
+            images={images}
+            handleDisplayModal={handleDisplayModal}
+          />
+          <TabLinks tabLinks={tabLinks} />
+          <Routes>
+            <Route path="/" element={<Overview />} />
+            <Route path="/order-online" element={<Order />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route
+              path="/photos"
+              element={
+                <Photos
+                  images={images}
+                  handleDisplayModal={handleDisplayModal}
+                />
+              }
+            />
+            <Route path="/book-table" element={<BookTable />} />
+          </Routes>
+        </div>
+      )}
     </>
   );
 };

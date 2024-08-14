@@ -13,13 +13,13 @@ function Carousel({ carouselItem, nextCaroselItem, prevCarouselItem, images }) {
         />
       </div>
       <span className="inline-block text-left">
-        <p className="text-left">
+        <p className="text-left text-slate-200">
           {current + 1}/{totalImages}
         </p>
       </span>
       <div className="absolute top-1/2 -left-14 -translate-y-1/2">
         <button
-          className="size-12 bg-gray-600/50 rounded-full flex items-center justify-center"
+          className="size-12 bg-gray-400/95 rounded-full flex items-center justify-center"
           onClick={prevCarouselItem}
         >
           <svg
@@ -27,7 +27,7 @@ function Carousel({ carouselItem, nextCaroselItem, prevCarouselItem, images }) {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            stroke="currentColor"
+            stroke="#000000"
             className="size-6"
           >
             <path
@@ -40,7 +40,7 @@ function Carousel({ carouselItem, nextCaroselItem, prevCarouselItem, images }) {
       </div>
       <div className="absolute top-1/2 -right-14 -translate-y-1/2">
         <button
-          className="size-12 bg-gray-600/50 rounded-full flex items-center justify-center"
+          className="size-12 bg-gray-400/95 rounded-full flex items-center justify-center"
           onClick={nextCaroselItem}
         >
           <svg
@@ -48,7 +48,7 @@ function Carousel({ carouselItem, nextCaroselItem, prevCarouselItem, images }) {
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            stroke="currentColor"
+            stroke="#000000"
             className="size-6"
           >
             <path
