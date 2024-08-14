@@ -19,7 +19,7 @@ function RestaurantHero({ images, handleDisplayModal }) {
         <span className="text-orange-300">Closed</span> - Opens at 12noon
       </p>
       <Link
-        className="block w-32 px-4 py-2 border rounded-lg cursor-pointer"
+        className="block w-32 px-4 py-2 mt-3 border rounded-lg cursor-pointer"
         to="https://www.google.com/maps/dir/?api=1&destination=17.4537844736,78.3640545979"
         target="_blank"
       >
