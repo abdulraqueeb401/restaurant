@@ -17,7 +17,7 @@ const RestaurantHero = forwardRef(function RestaurantHero(
       />
       <div
         ref={infoRef}
-        className={`${isSticky ? "sticky top-4 z-10 pt-4" : ""} bg-white`}
+        className={`${isSticky ? "sticky top-0 z-10 pt-4" : ""} bg-white`}
       >
         <h1 className="text-4xl font-semibold tracking-wide">
           The Lemonade Kitchen
