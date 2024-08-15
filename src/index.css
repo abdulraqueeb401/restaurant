@@ -39,7 +39,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   column-gap: 10px;
-  max-width: 500px;
+  max-width: 100%;
   align-items: start;
 }
 

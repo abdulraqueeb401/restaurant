@@ -45,9 +45,9 @@ function Order() {
     }
   }
   return (
-    <div className="grid grid-cols-4 gap-x-4 mt-3">
+    <div className="grid grid-cols-4 gap-4 relative">
       <Sidebar categories={categories} />
-      <div className="flex flex-col gap-y-10 col-span-2">
+      <div className="flex flex-col col-start-2 col-span-2 gap-10 mt-3">
         <CartIdContext.Provider value={cartIds}>
           <CardVariantContext.Provider value="MENU_CARD">
             {sampledata.categories.map((menuitem, index) => (
