@@ -17,8 +17,8 @@ const Card = ({ dish, onCardIdAddition, onCardIdRemoval }) => {
 
   return cardVariant === "MENU_CARD" ? (
     // Menu Card
-    <div className={`card-container`}>
-      <div className={`relative justify-self-end`}>
+    <div className={`${imageurl ? "card-container" : "flex gap-8"}`}>
+      <div className={`relative justify-self-start`}>
         {imageurl && (
           <img src={imageurl} alt={title} className="rounded-lg dish" />
         )}
