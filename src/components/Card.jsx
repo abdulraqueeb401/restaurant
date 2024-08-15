@@ -16,8 +16,9 @@ const Card = ({ dish, onCardIdAddition, onCardIdRemoval }) => {
   const count = cartItem.length ? cartItem[0][id] : 0;
 
   return cardVariant === "MENU_CARD" ? (
-    <div className={`card-container`}>
-      <div className="relative justify-self-end">
+    // Menu Card
+    <div className={`${imageurl ? "card-container" : "flex gap-8"}`}>
+      <div className={`relative justify-self-start`}>
         {imageurl && (
           <img src={imageurl} alt={title} className="rounded-lg dish" />
         )}
@@ -48,6 +49,7 @@ const Card = ({ dish, onCardIdAddition, onCardIdRemoval }) => {
       />
     </div>
   ) : (
+    // Cart Card
     <div className={"flex items-start gap-2"}>
       <img
         src={nonveg ? NonVegIcon : VegIcon}

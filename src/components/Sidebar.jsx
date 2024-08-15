@@ -5,7 +5,7 @@ const Sidebar = ({ categories }) => {
     console.log(key);
   };
   return (
-    <div className="flex flex-col gap-y-2 pt-4">
+    <div className="flex flex-col w-full gap-y-2 pt-4 sticky top-48 h-screen">
       {categories.map((category, index) => (
         <h3
           key={index}

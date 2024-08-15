@@ -1,10 +1,15 @@
+import { forwardRef } from "react";
 import PropTypes from "prop-types";
 import GalleryImage from "./GalleryImage";
+import { Link } from "react-router-dom";
 
-function BannerGallery({ images, displayModal }) {
+const BannerGallery = forwardRef(function BannerGallery(
+  { images, displayModal },
+  ref
+) {
   const newImages = images.slice(0, 5);
   return (
-    <div className="grid grid-cols-5 grid-rows-2 gap-2 h-96">
+    <div ref={ref} className="grid grid-cols-5 grid-rows-2 gap-2 h-96">
       <div className="h-full row-span-2 col-span-3 overflow-hidden">
         <GalleryImage
           url={newImages[0]}
@@ -36,15 +41,15 @@ function BannerGallery({ images, displayModal }) {
           displayModal={displayModal}
           index={3}
         />
-        {/* TODO: Add routing to Gallery page */}
-        <div className="h-full w-full absolute top-0 right-0  z-10 bg-gray-900/60 text-slate-200 font-light flex items-center justify-center cursor-pointer">
-          View Gallery
-        </div>
+        <Link to={"/photos"}>
+          <div className="h-full w-full absolute top-0 right-0  z-10 bg-gray-900/60 text-slate-200 font-light flex items-center justify-center cursor-pointer">
+            View Gallery
+          </div>
+        </Link>
       </div>
     </div>
   );
-}
-
+});
 BannerGallery.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
   displayModal: PropTypes.func.isRequired,

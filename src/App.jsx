@@ -1,59 +1,28 @@
 import { useState } from "react";
-import sampledata from "./utilities/data.json";
-import Sidebar from "./components/Sidebar";
-import MenuList from "./components/MenuList";
-import { CartIdContext } from "./components/CartIdContext";
-import { CardVariantContext } from "./components/CardVariantContext";
-import Cart from "./components/Cart";
-import Gallery from "./components/Gallery";
+import RestaurantHero from "./components/RestaurantHero";
 import Carousel from "./components/Carousel";
 import Modal from "./components/Modal";
 import { images } from "./assets/gallery_images.json";
-import BannerGallery from "./components/BannerGallery";
+import { Routes, Route } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
+import Overview from "./routes/Overview";
+import Order from "./routes/Order";
+import Reviews from "./routes/Reviews";
+import Photos from "./routes/Photos";
+import BookTable from "./routes/BookTable";
+import TabLinks from "./components/TabLinks";
+import { useRef } from "react";
+import { useEffect } from "react";
 
 const App = () => {
-  // const [state, setState] = useState({})
-  // const cardlist = new Array(10)
-  //   .fill(0)
-  //   .map((item, index) => <Card key={index} />);
-  const [cartIds, setCartIds] = useState([]);
   const [displayModal, setDisplayModal] = useState(false);
   const [carouselItem, setCarouselItem] = useState(0);
-  const dishes = sampledata.categories
-    .map((category) => category.dishes)
-    .flat(1);
-  function onCardIdAddition(id) {
-    const index = cartIds.findIndex((cartId) => cartId[id]);
-    if (index !== -1) {
-      // console.log("existing cart id count ", id, cartIds[index][id]);
-      const newCartIds = [
-        ...cartIds.slice(0, index),
-        { [id]: cartIds[index][id] + 1 },
-        ...cartIds.slice(index + 1, cartIds.length),
-      ];
-      setCartIds(newCartIds);
-    } else {
-      const newCartIds = [...cartIds, { [id]: 1 }];
-      setCartIds(newCartIds);
-    }
-  }
-  function onCardIdRemoval(id) {
-    const index = cartIds.findIndex((cartId) => cartId[id]);
-    if (cartIds[index][id] - 1) {
-      const newCartIds = [
-        ...cartIds.slice(0, index),
-        { [id]: cartIds[index][id] - 1 },
-        ...cartIds.slice(index + 1, cartIds.length),
-      ];
-      setCartIds(newCartIds);
-    } else {
-      const newCartIds = [
-        ...cartIds.slice(0, index),
-        ...cartIds.slice(index + 1, cartIds.length),
-      ];
-      setCartIds(newCartIds);
-    }
-  }
+  const [stickyTabs, setStickyTabs] = useState(false);
+  const tabLinkRef = useRef(null);
+  const infoRef = useRef(null);
+  const galleryRef = useRef(null);
+  const [stickyInfo, setStickyInfo] = useState(false);
+  const [hideDirection, setHideDirection] = useState(false);
 
   function handleDisplayModal(e, index) {
     e.stopPropagation();
@@ -83,38 +52,66 @@ const App = () => {
       setCarouselItem(totalImages - 1);
     }
   }
-  // console.log(cartIds);
 
-  const categories = sampledata.categories.map((item) => item.name);
-  // console.log(sampledata);
+  const tabLinks = [
+    {
+      title: "Overview",
+      link: "/",
+      id: "tabid1",
+    },
+    {
+      title: "Order Online",
+      link: "/order-online",
+      id: "tabid2",
+    },
+    {
+      title: "Reviews",
+      link: "/reviews",
+      id: "tabid3",
+    },
+    {
+      title: "Photos",
+      link: "/photos",
+      id: "tabid4",
+    },
+    {
+      title: "Book a Table",
+      link: "/book-table",
+      id: "tabid5",
+    },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // console.log(galleryRef.current, infoRef.current, tabLinkRef.current);
+      if (galleryRef.current && infoRef.current) {
+        // console.log("hey");
+        const galleryBottom = galleryRef.current.getBoundingClientRect().bottom;
+
+        if (galleryBottom <= 0) {
+          setStickyInfo(true);
+        } else setStickyInfo(false);
+      }
+      if (infoRef.current && tabLinkRef.current) {
+        const infoBottom = infoRef.current.getBoundingClientRect().bottom;
+        const tabLinksTop = tabLinkRef.current.getBoundingClientRect().top;
+
+        if (tabLinksTop <= infoBottom) {
+          setHideDirection(true);
+          setStickyTabs(true);
+        } else {
+          setHideDirection(false);
+          setStickyTabs(false);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    //   <div className="grid grid-cols-4 gap-x-4">
-    //     <Sidebar categories={categories} />
-    //     <div className="flex flex-col gap-y-10 col-span-2">
-    //       <CartIdContext.Provider value={cartIds}>
-    //         <CardVariantContext.Provider value="MENU_CARD">
-    //           {sampledata.categories.map((menuitem, index) => (
-    //             <MenuList
-    //               key={index}
-    //               onCardIdAddition={onCardIdAddition}
-    //               onCardIdRemoval={onCardIdRemoval}
-    //               menuitem={menuitem}
-    //             />
-    //           ))}
-    //         </CardVariantContext.Provider>
-    //       </CartIdContext.Provider>
-    //     </div>
-    //     <CartIdContext.Provider value={cartIds}>
-    //       <CardVariantContext.Provider value={"ORDER_CARD"}>
-    //         <Cart
-    //           dishes={dishes}
-    //           onCardIdAddition={onCardIdAddition}
-    //           onCardIdRemoval={onCardIdRemoval}
-    //           cartIds={cartIds}
-    //         />
-    //       </CardVariantContext.Provider>
-    //     </CartIdContext.Provider>
-    //   </div>
     <>
       {displayModal ? (
         <Modal closeModal={handleCloseModal}>
@@ -126,11 +123,36 @@ const App = () => {
           />
         </Modal>
       ) : (
-        <Gallery images={images} displayModal={handleDisplayModal} />
+        <div className="w-3/4 m-auto relative">
+          <RestaurantHero
+            ref={{ galleryRef, infoRef }}
+            images={images}
+            isSticky={stickyInfo}
+            hideDirection={hideDirection}
+            handleDisplayModal={handleDisplayModal}
+          />
+          <TabLinks
+            ref={tabLinkRef}
+            tabLinks={tabLinks}
+            enableStickyTabs={stickyTabs}
+          />
+          <Routes>
+            <Route path="/" element={<Overview />} />
+            <Route path="/order-online" element={<Order />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route
+              path="/photos"
+              element={
+                <Photos
+                  images={images}
+                  handleDisplayModal={handleDisplayModal}
+                />
+              }
+            />
+            <Route path="/book-table" element={<BookTable />} />
+          </Routes>
+        </div>
       )}
-      <div className="w-3/4 m-auto">
-        <BannerGallery images={images} displayModal={handleDisplayModal} />
-      </div>
     </>
   );
 };

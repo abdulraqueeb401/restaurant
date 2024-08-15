@@ -4,7 +4,7 @@ import Card from "./Card";
 function MenuList({ menuitem, onCardIdAddition, onCardIdRemoval }) {
   const { name, dishes } = menuitem;
   return (
-    <section className="flex flex-col gap-y-5 col-span-2">
+    <section className="flex flex-col gap-5">
       <h2 className="menu-heading">{name}</h2>
       {dishes.map((dish) => {
         return (

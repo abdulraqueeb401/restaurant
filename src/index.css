@@ -37,9 +37,9 @@
 
 .card-container {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: min-content 2fr 1fr;
   column-gap: 10px;
-  max-width: 500px;
+  max-width: 100%;
   align-items: start;
 }
 
@@ -60,11 +60,6 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-
-.cart {
-  padding: 10px;
-  height: fit-content;
 }
 
 .cart-title {
