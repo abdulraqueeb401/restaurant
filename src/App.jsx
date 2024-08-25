@@ -13,6 +13,7 @@ import BookTable from "./routes/BookTable";
 import TabLinks from "./components/TabLinks";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
@@ -136,7 +137,8 @@ const App = () => {
             tabLinks={tabLinks}
             enableStickyTabs={stickyTabs}
           />
-          <Routes>
+          <Outlet />
+          {/* <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/order-online" element={<Order />} />
             <Route path="/reviews" element={<Reviews />} />
@@ -150,7 +152,7 @@ const App = () => {
               }
             />
             <Route path="/book-table" element={<BookTable />} />
-          </Routes>
+          </Routes> */}
         </div>
       )}
     </>
