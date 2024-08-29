@@ -3,16 +3,10 @@ import RestaurantHero from "./components/RestaurantHero";
 import Carousel from "./components/Carousel";
 import Modal from "./components/Modal";
 import { images } from "./assets/gallery_images.json";
-import { Routes, Route } from "react-router-dom";
-import ErrorPage from "./ErrorPage";
-import Overview from "./routes/Overview";
-import Order from "./routes/Order";
-import Reviews from "./routes/Reviews";
-import Photos from "./routes/Photos";
-import BookTable from "./routes/BookTable";
 import TabLinks from "./components/TabLinks";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
@@ -136,21 +130,7 @@ const App = () => {
             tabLinks={tabLinks}
             enableStickyTabs={stickyTabs}
           />
-          <Routes>
-            <Route path="/" element={<Overview />} />
-            <Route path="/order-online" element={<Order />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route
-              path="/photos"
-              element={
-                <Photos
-                  images={images}
-                  handleDisplayModal={handleDisplayModal}
-                />
-              }
-            />
-            <Route path="/book-table" element={<BookTable />} />
-          </Routes>
+          <Outlet context={{ handleDisplayModal }} />
         </div>
       )}
     </>

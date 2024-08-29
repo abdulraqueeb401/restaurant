@@ -1,8 +1,9 @@
 import Gallery from "../components/Gallery";
 import PropTypes from "prop-types";
+import {images} from "../assets/gallery_images.json";
 
-function Photos({ images, handleDisplayModal }) {
-  return <Gallery images={images} displayModal={handleDisplayModal} />;
+function Photos() {
+  return <Gallery images={images} />;
 }
 
 Photos.propTypes = {
