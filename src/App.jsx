@@ -130,22 +130,7 @@ const App = () => {
             tabLinks={tabLinks}
             enableStickyTabs={stickyTabs}
           />
-          <Outlet />
-          {/* <Routes>
-            <Route path="/" element={<Overview />} />
-            <Route path="/order-online" element={<Order />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route
-              path="/photos"
-              element={
-                <Photos
-                  images={images}
-                  handleDisplayModal={handleDisplayModal}
-                />
-              }
-            />
-            <Route path="/book-table" element={<BookTable />} />
-          </Routes> */}
+          <Outlet context={{ handleDisplayModal }} />
         </div>
       )}
     </>
